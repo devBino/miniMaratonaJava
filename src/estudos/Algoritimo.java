@@ -1,6 +1,5 @@
 package estudos;
 
-import java.io.IOException;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 
@@ -17,6 +16,7 @@ public class Algoritimo extends Controller{
         
         Scanner sc = new Scanner(System.in);
         System.out.println("Digite 1 para ver a resposta ou 0 para encerrar ");
+        
         int opcaoUsuario = sc.nextInt();
         
         if( opcaoUsuario == 1 ){
@@ -124,10 +124,7 @@ public class Algoritimo extends Controller{
     }
     
     public void repeteCalculoJuros(){
-        
-        String so = System.getProperty("os.name");
         this.limparConsole();
-        
         calculaJurosCompostos(true);
     }
     
