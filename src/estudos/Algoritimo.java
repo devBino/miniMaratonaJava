@@ -7,6 +7,27 @@ public class Algoritimo extends Controller{
 
     public Algoritimo(){}
     
+    @Override
+    public Boolean confirmouContinuar(){
+        
+        Scanner sc = new Scanner(System.in);
+        String opcaoUsuario = "n";
+        
+        try{
+            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            System.out.println("Deseja repetir o comando? [s] ou [n]");
+            opcaoUsuario = sc.next();    
+        }catch(Exception e){
+            opcaoUsuario = "n";
+        }
+        
+        if( opcaoUsuario.toLowerCase().equals("s") ){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     public void lesmaAlpinista(){
         String strEnunciado = "Uma lesma precisa subir um poste de 10 metros de altura.";
         strEnunciado = strEnunciado + "\nDurante o dia a lesma sobe 2 metros, durante a noite ela escorrega 1.";
@@ -105,11 +126,13 @@ public class Algoritimo extends Controller{
             String fmtCapitalInicial = df.format(capitalInicial);
             String fmtTaxa = df.format(taxa);
 
+            this.limparConsole();
+            
             //saida de dados
             System.out.println("Valor Investido: R$ "+fmtCapitalInicial);
             System.out.println("Tempo em Anos: "+tempo);
             System.out.println("Taxa ao Ano: " + fmtTaxa);
-            System.out.println("Valor Retorno: " + fmtMontante);
+            System.out.println("Valor Retorno Bruto: " + fmtMontante);
             
             //confirma se usuario quer continuar
             if( this.confirmouContinuar() ){
@@ -118,7 +141,7 @@ public class Algoritimo extends Controller{
             
         }catch(Exception e){
             //caso o usuário digite algo errado, limpa o console e chama a função novamente
-            System.out.println("Por favor tente novamente, os números decimais devem ser informados com ponto");
+            System.out.println("Por favor tente novamente!!\nEXEMPLO:\nValor a Investir: 1200,00\nTempo em Anos 10, sem virgula ou ponto\nTaxa: 5,45");
             repeteCalculoJuros();
         }
     }

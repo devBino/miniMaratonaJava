@@ -14,7 +14,6 @@ public class RelembrandoJava {
     public static void main(String[] args) {
         
         String msgInicial = "OI, ESSE PROGRAMA RESULTA DE UMA MINI MARATONA EM JAVA.";
-        msgInicial = msgInicial + "\nSE VOCÊ CURTE JAVA CONTINUE...";
         msgInicial = msgInicial + " \n:) :) :) :) :) ";
         
         apresentacao(msgInicial,0);
@@ -48,75 +47,90 @@ public class RelembrandoJava {
         
     }
     
+    public static void escreveMenu(){
+        String[] listaComandos = new String[]{
+            "EXEMPLO ANIMAL",
+            "EXEMPLO PESSOA",
+            "OPERADORES",
+            "ALGORÍTIMO DA LESMA",
+            "ALGORÍTIMO JUROS COMPOSTOS",
+            "EXEMPLO ARRAY UNI-DIMENSIONAL",
+            "EXEMPLO ARRAY MULTI-DIMENSIONAL",
+            "EXEMPLO COM LIST<>"
+        };
+
+        titulo("PARA INICIAR O PROGRAMA, ESCOLHA UM COMANDO PARA TESTAR:","+");
+
+        for(int i=0; i<listaComandos.length; i++){
+            System.out.println("[" + (i + 1) + "]" + listaComandos[i]);
+        }
+    }
+    
+    public static void direcionaComando(String opcaoUsuario){
+        
+        int tempo = 5000;
+                
+        switch( opcaoUsuario ){
+            case "1":
+                exemploAnimal();
+                break;
+            case "2":
+                exemploPessoa();
+                break;  
+            case "3":
+                exemploOperador();
+                tempo = 12000;
+                break;
+            case "4":
+                exemploLesmaAlpinista();
+                tempo = 30000;
+                break;
+            case "5":
+                exemploJurosCompostos();
+                tempo = 5000;
+                break;  
+            case "6":
+                exemploArrayUniDimensional();
+                tempo = 15000;
+                break;
+            case "7":
+                exemploArrayMultiDimensional();
+                tempo = 30000;
+                break;
+            case "8":
+                exemploArrayList();
+                tempo = 30000;
+                break;
+            default:
+                break;
+        }
+        
+        System.out.print("\n");
+                
+        temporizador(tempo, ".");
+        
+        Controller ct = new Controller();
+        ct.limparConsole();
+
+        if( ct.confirmouContinuar() ){
+            escolherComando(true);
+        }
+    }
+    
     public static void escolherComando(boolean continuar){
         try{
             if( continuar ){
-                Controller ct = new Controller();
+                
                 Scanner sc = new Scanner(System.in);
-
-                //array com os principais comandos que são na verdade exemplos de estudos
-                String[] listaComandos = new String[]{
-                    "EXEMPLO ANIMAL",
-                    "EXEMPLO PESSOA",
-                    "OPERADORES",
-                    "ALGORÍTIMO DA LESMA",
-                    "ALGORÍTIMO JUROS COMPOSTOS",
-                    "EXEMPLO ARRAY UNI-DIMENSIONAL",
-                    "EXEMPLO ARRAY MULTI-DIMENSIONAL"
-                };
-
-                titulo("PARA INICIAR O PROGRAMA, ESCOLHA UM COMANDO PARA TESTAR:","+");
-
-                for(int i=0; i<listaComandos.length; i++){
-                    System.out.println("[" + (i + 1) + "]" + listaComandos[i]);
-                }
+                
+                escreveMenu();
                 
                 separaComandosFraco();
                 
                 System.out.println("Digite o número do comando:");
                 String opcaoUsuario = sc.next();
-                int tempo = 5000;
                 
-                switch( opcaoUsuario ){
-                    case "1":
-                        exemploAnimal(true);
-                        break;
-                    case "2":
-                        exemploPessoa(true);
-                        break;  
-                    case "3":
-                        exemploOperador(true);
-                        tempo = 12000;
-                        break;
-                    case "4":
-                        exemploLesmaAlpinista(true);
-                        tempo = 30000;
-                        break;
-                    case "5":
-                        exemploJurosCompostos(true);
-                        tempo = 30000;
-                        break;  
-                    case "6":
-                        exemploArrayUniDimensional(true);
-                        tempo = 15000;
-                        break;
-                    case "7":
-                        exemploArrayMultiDimensional(true);
-                        tempo = 30000;
-                        break;
-                    default:
-                        break;
-                }
-                
-                System.out.print("\n");
-                
-                temporizador(tempo, ".");
-                
-                ct.limparConsole();
-                
-                if( ct.confirmouContinuar() ){
-                    escolherComando(true);
-                }
+                direcionaComando(opcaoUsuario);
                 
             }
             
@@ -164,11 +178,7 @@ public class RelembrandoJava {
         System.out.print("\n");
     }
     
-    public static Boolean exemploAnimal(boolean executar){
-        
-        if( !executar ){
-            return false;
-        }
+    public static void exemploAnimal(){
         
         //Exemplo de uso de classe em outro pacote
         titulo("DADOS DO GATO CHAMADO POKA:","*");
@@ -179,14 +189,9 @@ public class RelembrandoJava {
         
         separaComandosForte();
         
-        return true;
     }
     
-    public static Boolean exemploPessoa(boolean executar){
-        
-        if( !executar ){
-            return false;
-        }
+    public static void exemploPessoa(){
         
         titulo("DADOS DE UMA PESSOA:", "*");
         
@@ -196,14 +201,9 @@ public class RelembrandoJava {
         
         separaComandosForte();
         
-        return true;
     }
     
-    public static Boolean exemploOperador(boolean executar){
-        
-        if( !executar ){
-            return false;
-        }
+    public static void exemploOperador(){
         
         titulo("EXEMPLOS COM ALGUNS OPERADORES:","*");
         
@@ -224,14 +224,9 @@ public class RelembrandoJava {
         o.comparaNomesPessoas(new String[]{"Luiz","Fernando"});
         separaComandosForte();
         
-        return true;
     }
     
-    public static Boolean exemploLesmaAlpinista(boolean executar){
-        
-        if( !executar ){
-            return false;
-        }
+    public static void exemploLesmaAlpinista(){
         
         titulo("EXEMPLO DE ALGORÍTIMO DA LESMA","*");
         
@@ -242,14 +237,9 @@ public class RelembrandoJava {
         
         separaComandosForte();
         
-        return true;
     }
     
-    public static Boolean exemploJurosCompostos(boolean executar){
-        
-        if( !executar ){
-            return false;
-        }
+    public static void exemploJurosCompostos(){
         
         titulo("EXEMPLO DE CALCULO DE JUROS COMPOSTOS: ","*");
         
@@ -258,14 +248,9 @@ public class RelembrandoJava {
         
         separaComandosForte();
         
-        return true;
     }
     
-    public static Boolean exemploArrayUniDimensional(boolean executar){
-        
-        if( !executar ){
-            return false;
-        }
+    public static void exemploArrayUniDimensional(){
         
         titulo("EXEMPLO DE ARRAY SIMPLES: ","*");
         
@@ -274,14 +259,9 @@ public class RelembrandoJava {
         
         separaComandosForte();
         
-        return true;
     }
     
-    public static Boolean exemploArrayMultiDimensional(boolean executar){
-        
-        if( !executar ){
-            return false;
-        }
+    public static void exemploArrayMultiDimensional(){
         
         titulo("EXEMPLO DE ARRAY MULTI DIMENSIONAL (matriz): ","*");
         
@@ -290,7 +270,17 @@ public class RelembrandoJava {
         
         separaComandosForte();
         
-        return true;
+    }
+    
+    public static void exemploArrayList(){
+        
+        titulo("EXEMPLO DE ARRAY LIST<>","*");
+        
+        TesteArray t = new TesteArray();
+        t.exemploArrayList(true);
+        
+        separaComandosForte();
         
     }
+    
 }

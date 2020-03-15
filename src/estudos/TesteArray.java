@@ -1,10 +1,38 @@
 package estudos;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TesteArray extends Controller {
 
+    private List<String> planetas = new ArrayList<String>();
+    
     public TesteArray(){}
+
+    @Override
+    public Boolean confirmouContinuar(){
+        String opcaoUsuario = "n";
+        boolean continuar = false;
+        
+        Scanner sc = new Scanner(System.in);
+        
+        try{
+            System.out.println("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            System.out.println("Deseja continuar testando Array? [s] ou [n]");
+        
+            opcaoUsuario = sc.next().toLowerCase();
+            
+        }catch(Exception e){
+            opcaoUsuario = "n";
+        }
+        
+        if( opcaoUsuario.equals("s") ){
+            return true;
+        }else{
+            return false;
+        }
+    }
     
     public void arrayUniDimensional(){
         //criação tradicional
@@ -94,6 +122,39 @@ public class TesteArray extends Controller {
         }
         
         return true;
+    }
+    
+    public void exemploArrayList(boolean continuar){
+    
+        if( continuar ){
+            Scanner sc = new Scanner(System.in);
+
+            System.out.println("Informe um Planeta: ");
+            String planeta = sc.next();
+
+            this.planetas.add(planeta);
+
+            this.limparConsole();
+            
+            System.out.println("Deseja informar mais planetas? [s] ou [n]?");
+            String opcaoUsuario = sc.next();
+            
+            if( opcaoUsuario.toLowerCase().equals("s") ){
+                exemploArrayList(true);
+            }else{
+                exemploArrayList(false);
+            }
+            
+        }else{
+            
+            System.out.println("ABAIXO OS PLANETAS INFORMADOS: ");
+            
+            for( String p : this.planetas ){
+                System.out.println(p);
+            }
+            
+        }
+        
     }
     
 }
