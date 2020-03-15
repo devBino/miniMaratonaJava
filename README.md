@@ -1,1 +1,1 @@
-<center><h1>Programa Java resultante de Mini Maratona Java, com objetivo de relembrar a tecnologia.</h1></center>
+<center><h1>Programa Java resultante de Mini Maratona Java, com objetivo de Exercitar e Relembrar do Java.</h1></center>
