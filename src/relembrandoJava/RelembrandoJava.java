@@ -8,6 +8,8 @@ package relembrandoJava;
 
 import java.util.Scanner;
 import estudos.*;
+import animes.*;
+import controllers.Controller;
 
 public class RelembrandoJava {
 
@@ -56,7 +58,8 @@ public class RelembrandoJava {
             "ALGORÍTIMO JUROS COMPOSTOS",
             "EXEMPLO ARRAY UNI-DIMENSIONAL",
             "EXEMPLO ARRAY MULTI-DIMENSIONAL",
-            "EXEMPLO COM LIST<>"
+            "EXEMPLO COM LIST<>",
+            "EXEMPLO COM ARRAY DE OBJETOS"
         };
 
         titulo("PARA INICIAR O PROGRAMA, ESCOLHA UM COMANDO PARA TESTAR:","+");
@@ -101,13 +104,19 @@ public class RelembrandoJava {
                 exemploArrayList();
                 tempo = 30000;
                 break;
+            case "9":
+                exemploArrayObjetos();
+                tempo = 30000;
+                break;
             default:
                 break;
         }
         
-        System.out.print("\n");
+        System.out.print("\n[");
                 
-        temporizador(tempo, ".");
+        temporizador(tempo, "#");
+        
+        System.out.println("]");
         
         Controller ct = new Controller();
         ct.limparConsole();
@@ -278,6 +287,17 @@ public class RelembrandoJava {
         
         TesteArray t = new TesteArray();
         t.exemploArrayList(true);
+        
+        separaComandosForte();
+        
+    }
+    
+    public static void exemploArrayObjetos(){
+        
+        titulo("EXEMPLO ARRAY DE OBJETOS","*");
+        
+        ArrayAnime a = new ArrayAnime();
+        a.exemploArrayObjetoAnimeNaruto();
         
         separaComandosForte();
         

@@ -2,6 +2,7 @@ package estudos;
 
 import java.util.Scanner;
 import java.text.DecimalFormat;
+import controllers.Controller;
 
 public class Algoritimo extends Controller{
 

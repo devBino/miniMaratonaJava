@@ -1,7 +1,7 @@
 /*
  * Classe criada apenas para reaproveitar algumas funcionalidades gerais
  */
-package estudos;
+package controllers;
 
 import java.util.Scanner;
 

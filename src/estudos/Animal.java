@@ -1,5 +1,7 @@
 package estudos;
 
+import controllers.Controller;
+
 public class Animal extends Controller {
 
     private String nome;

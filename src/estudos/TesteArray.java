@@ -3,6 +3,7 @@ package estudos;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+import controllers.Controller;
 
 public class TesteArray extends Controller {
 

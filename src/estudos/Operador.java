@@ -1,5 +1,7 @@
 package estudos;
 
+import controllers.Controller;
+
 public class Operador extends Controller {
 
     public Operador(){
